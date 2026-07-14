@@ -231,6 +231,8 @@ class HyperOverlay:
             top.title("NoxOverlay")
             top.configure(bg='black')
             top.overrideredirect(True)
+            # PATCH: prevent overlay window from ever showing in taskbar
+            top.attributes('-toolwindow', True)
 
             top.update() 
 
