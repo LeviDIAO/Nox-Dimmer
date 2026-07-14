@@ -6,7 +6,7 @@ A patched variant of [**YashvardhanG/Nox-Dimmer**](https://github.com/Yashvardha
 
 ## What This Patch Changes
 
-The original Nox-Dimmer's Hyper Mode deliberately excludes the taskbar area from its overlay (`rcWork` / work area), leaving the taskbar noticeably brighter than the rest of the screen in low-light use cases. This patch:
+The original Nox-Dimmer's Hyper Mode deliberately excludes the taskbar area from its overlay (`rcWork` / work area), leaving the taskbar noticeably brighter than the rest of the screen in low-light environments. This patch:
 
 1. **`Nox.py` line ~199**: Changes `info.rcWork` → `info.rcMonitor` so the black overlay covers the full monitor rectangle, including the taskbar.
 2. **`Nox.py` line ~234**: Adds `-toolwindow` attribute to prevent the overlay window from briefly appearing in the taskbar on first activation.
@@ -16,7 +16,7 @@ The original Nox-Dimmer's Hyper Mode deliberately excludes the taskbar area from
 
 ## Why
 
-When using an external monitor (e.g., HKC P272U Pro) in a low-light environment, even at minimum hardware brightness + Twinkle Tray DDC/CI control, the screen is still too bright. The original Hyper mode gets close to OLED-level darkness but leaves the taskbar glowing. This patch fixes that gap.
+When using an external monitor (e.g., HKC P272U Pro) in a low-light environment, even at minimum hardware brightness + Twinkle Tray DDC/CI control, the screen can still feel too bright. The original Hyper mode gets close to OLED-level darkness but leaves the taskbar glowing. This patch fixes that gap.
 
 ## Building From Source
 
@@ -53,7 +53,7 @@ Pre-built single-file executable (v2 — taskbar-covering Hyper mode + taskbar-f
 
 ## 这个补丁改了什么
 
-原版 Nox-Dimmer 的 Hyper 模式刻意把任务栏区域排除在遮罩之外（用的是 `rcWork` / 工作区），导致在低光使用场景下，任务栏比屏幕其余部分明显更亮。本补丁做了三处修改：
+原版 Nox-Dimmer 的 Hyper 模式刻意把任务栏区域排除在遮罩之外（用的是 `rcWork` / 工作区），导致在光线较暗的环境下，任务栏比屏幕其余部分明显更亮。本补丁做了三处修改：
 
 1. **`Nox.py` 约第 199 行**：把 `info.rcWork` 改为 `info.rcMonitor`，让黑色遮罩覆盖整块显示器（含任务栏）。
 2. **`Nox.py` 约第 234 行**：增加 `-toolwindow` 属性，防止遮罩窗口在首次开启时短暂出现在任务栏上。
@@ -63,7 +63,7 @@ Pre-built single-file executable (v2 — taskbar-covering Hyper mode + taskbar-f
 
 ## 为什么需要它
 
-晚上用外接显示器（例如 HKC P272U Pro）时，即便把硬件亮度拉到最低、再用 Twinkle Tray 走 DDC/CI 控制，屏幕依然太亮。原版的 Hyper 模式已经接近 OLED 级的纯黑，却唯独留下任务栏在发光。这个补丁填补了这个缺口。
+在光线较暗的环境中使用外接显示器（例如 HKC P272U Pro）时，即便把硬件亮度拉到最低、再用 Twinkle Tray 走 DDC/CI 控制，屏幕依然太亮。原版的 Hyper 模式已经接近 OLED 级的纯黑，却唯独留下任务栏在发光。这个补丁填补了这个缺口。
 
 ## 从源码构建
 
