@@ -42,7 +42,7 @@ pyinstaller --noconfirm --onefile --windowed --icon=nox_icon.ico \
 
 ## Download
 
-Pre-built single-file executable (v2 — taskbar-covering Hyper mode + taskbar-flash fix): [`dist/Nox-Dimmer-Patched.exe`](dist/Nox-Dimmer-Patched.exe). No install needed — just run it. Built from the `Nox.py` in this repo.
+Pre-built single-file executable (v2 — taskbar-covering Hyper mode + taskbar-flash fix): **[Download from GitHub Releases](https://github.com/LeviDIAO/Nox-Dimmer/releases/tag/v2)**. No install needed — just run it. Built from the `Nox.py` in this repo.
 
 ## Credits & License
 
@@ -97,7 +97,7 @@ pyinstaller --noconfirm --onefile --windowed --icon=nox_icon.ico \
 
 ## 下载
 
-预编译的单文件可执行程序（v2——覆盖任务栏的 Hyper 模式 + 修复任务栏闪烁）：[`dist/Nox-Dimmer-Patched.exe`](dist/Nox-Dimmer-Patched.exe)。无需安装，直接运行即可。由本仓库中的 `Nox.py` 构建而来。
+预编译的单文件可执行程序（v2——覆盖任务栏的 Hyper 模式 + 修复任务栏闪烁）：**[从 GitHub Releases 下载](https://github.com/LeviDIAO/Nox-Dimmer/releases/tag/v2)**。无需安装，直接运行即可。由本仓库中的 `Nox.py` 构建而来。
 
 ## 致谢与许可
 
