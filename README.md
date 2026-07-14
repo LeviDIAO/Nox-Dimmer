@@ -32,7 +32,7 @@ pyinstaller --noconfirm --onefile --windowed --icon=nox_icon.ico \
 
 ## Download
 
-Grab the pre-built executable from [Releases](../../releases). Single-file, no install needed.
+Pre-built single-file executable (v2 — taskbar-covering Hyper mode + taskbar-flash fix): [`dist/Nox-Dimmer-Patched.exe`](dist/Nox-Dimmer-Patched.exe). No install needed — just run it. Built from the `Nox.py` in this repo.
 
 ## Credits & License
 
