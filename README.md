@@ -14,6 +14,14 @@ The original Nox-Dimmer's Hyper Mode deliberately excludes the taskbar area from
 
 **Total: 3 lines changed.** Everything else — hotkeys, multi-monitor support, tray icon, gamma enforcement — is identical to upstream v1.4.
 
+## Bug Fixes in This Variant
+
+**Taskbar-flash bug (fixed in v2).**
+
+- **Symptom**: The first time you activated Hyper Mode, a window entry named `NoxOverlay` briefly flashed in the Windows taskbar.
+- **Cause**: The full-screen overlay is a top-level `Toplevel` window. Without the `WS_EX_TOOLWINDOW` extended style, Windows treats it as a normal application window and lists it in the taskbar.
+- **Fix**: Set `-toolwindow` on the overlay window (`Nox.py` line ~234) so Windows never shows it in the taskbar or Alt-Tab.
+
 ## Why
 
 When using an external monitor (e.g., HKC P272U Pro) in a low-light environment, even at minimum hardware brightness + Twinkle Tray DDC/CI control, the screen can still feel too bright. The original Hyper mode gets close to OLED-level darkness but leaves the taskbar glowing. This patch fixes that gap.
@@ -60,6 +68,14 @@ Pre-built single-file executable (v2 — taskbar-covering Hyper mode + taskbar-f
 3. 界面文案更新："Hyper Mode (Taskbar Visible)" → "Hyper Mode (Covers Taskbar)"（覆盖任务栏）。
 
 **总共只改了 3 行。** 其余功能——快捷键、多显示器独立控制、托盘图标、伽马值强制——都与原版 v1.4 完全一致。
+
+## 本变体修复的 Bug
+
+**任务栏闪条 Bug（v2 已修复）。**
+
+- **现象**：第一次开启 Hyper 模式时，任务栏会短暂出现一个名为 `NoxOverlay` 的窗口条目。
+- **原因**：全屏遮罩是一个顶层 `Toplevel` 窗口。若不加 `WS_EX_TOOLWINDOW` 扩展样式，Windows 会把它当成普通应用窗口，从而列进任务栏。
+- **修复**：给遮罩窗口设置 `-toolwindow` 属性（`Nox.py` 约第 234 行），让 Windows 永远不在任务栏或 Alt-Tab 中显示它。
 
 ## 为什么需要它
 
