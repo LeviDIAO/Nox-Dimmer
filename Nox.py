@@ -196,7 +196,10 @@ class HyperOverlay:
             info = MONITORINFO()
             info.cbSize = ctypes.sizeof(MONITORINFO)
             if windll.user32.GetMonitorInfoW(monitor, byref(info)):
-                r = info.rcWork
+                # PATCH: use full monitor rect (rcMonitor) instead of work area (rcWork)
+                # so the overlay covers the taskbar too. Taskbar stays visible & clickable
+                # because the overlay window is WS_EX_TRANSPARENT (click-through).
+                r = info.rcMonitor
                 return (r.left, r.top, r.right - r.left, r.bottom - r.top)
         
         rect = RECT()
@@ -228,7 +231,7 @@ class HyperOverlay:
             top.title("NoxOverlay")
             top.configure(bg='black')
             top.overrideredirect(True)
-            
+
             top.update() 
 
             top.geometry(f"{work_w}x{work_h}+{work_x}+{work_y}")
@@ -533,7 +536,7 @@ class DimmerApp:
         hyper_frame.pack(fill='x', side='top', pady=0)
 
         self.hyper_var = tk.BooleanVar(value=False)
-        self.chk_hyper = tk.Checkbutton(hyper_frame, text="Hyper Mode (Taskbar Visible)", variable=self.hyper_var,
+        self.chk_hyper = tk.Checkbutton(hyper_frame, text="Hyper Mode (Covers Taskbar)", variable=self.hyper_var,
                            bg=self.colors["bg"], fg=self.colors["hyper"], 
                            selectcolor=self.colors["bg"], activebackground=self.colors["bg"],
                            activeforeground=self.colors["hyper"], command=self.toggle_hyper_mode,
